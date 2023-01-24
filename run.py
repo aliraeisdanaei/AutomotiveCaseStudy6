@@ -1,5 +1,13 @@
-import carla
 import random
+
+import sys
+try:
+    # sys.path.append(glob.glob('/opt/CARLA_%d.%d.%d/PythonAPI/carla/dist/arla-0.9.13-py3.7-linux-x86_64.egg'[0]))
+    sys.path.append('/opt/CARLA_0.9.13/PythonAPI/carla/dist/')
+except IndexError:
+    pass
+
+import carla
 
 # Connect to the client and retrieve the world object
 client = carla.Client('localhost', 2000)

@@ -1,6 +1,10 @@
-run_carla = /opt/*arla*/bin/CarlaUE4.sh 
+run_carla = /opt/CARLA_0.9.13/CarlaUE4.sh 
 run_api_file = run.py
+
+python = python2.7
 
 make:
 	${run_carla}
-	python ${run_api_file}
+
+run:
+	${python2.7} ${run_api_file}
