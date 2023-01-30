@@ -1,5 +1,6 @@
 import random
 import pygame
+import time
 
 import carla
 
@@ -33,24 +34,18 @@ camera.listen(lambda image: image.save_to_disk('out/%06d.png' % image.frame))
 
 spectator = world.get_spectator()
 transform = ego_vehicle.get_transform()
-spectator.set_transform(carla.Transform(transform.location + carla.Location(z=50), carla.Rotation(pitch=-90)))
+spectator.set_transform(carla.Transform(transform.location + carla.Location(z=50), carla.Rotation(pitch=-90), attach_to=ego_vehicle))
 
-while True:
-       
-    # creating a loop to check events that
-    # are occurring
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            print('Exit simulator ', '*' * 10)
-            break
          
-        # checking if keydown event happened or not
-        if event.type == pygame.KEYDOWN:
-           
-            # if keydown event happened
-            # than printing a string to output
-            print("A key has been pressed")
+ego_vehicle.apply_control(carla.VehicleControl(throttle=1))
+print("Driving")
+
+sec = 20
+t_end = time.time() + sec
+while time.time() < t_end:
+    pass
+
+ego_vehicle.apply_control(carla.VehicleControl(brake=0.5))
 
 
 camera.destroy()
