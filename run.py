@@ -34,18 +34,23 @@ camera.listen(lambda image: image.save_to_disk('out/%06d.png' % image.frame))
 
 spectator = world.get_spectator()
 transform = ego_vehicle.get_transform()
-spectator.set_transform(carla.Transform(transform.location + carla.Location(z=50), carla.Rotation(pitch=-90), attach_to=ego_vehicle))
+spectator.set_transform(carla.Transform(transform.location + carla.Location(z=20), carla.Rotation(pitch=-90)))
 
          
-ego_vehicle.apply_control(carla.VehicleControl(throttle=1))
+ego_vehicle.apply_control(carla.VehicleControl(throttle=0.5))
 print("Driving")
 
 sec = 20
 t_end = time.time() + sec
 while time.time() < t_end:
-    pass
+    spectator.set_transform(carla.Transform(ego_vehicle.get_transform().location + carla.Location(z=20), carla.Rotation(pitch=-90)))
+    # pass
 
+print("Breaking")
 ego_vehicle.apply_control(carla.VehicleControl(brake=0.5))
+t_end = time.time() + sec
+while time.time() < t_end:
+    spectator.set_transform(carla.Transform(ego_vehicle.get_transform().location + carla.Location(z=20), carla.Rotation(pitch=-90)))
 
 
 camera.destroy()
