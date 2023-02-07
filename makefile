@@ -8,3 +8,6 @@ make:
 
 run:
 	${python2.7} ${run_api_file}
+
+drive:
+	${python2.7} run_drive.py
