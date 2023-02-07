@@ -9,7 +9,6 @@
 
 using namespace std;
 
-#include "../configuration.h"
 #ifndef MUSIC_PLAYER
 #define MUSIC_PLAYER
 #endif

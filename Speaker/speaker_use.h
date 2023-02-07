@@ -9,6 +9,10 @@
 // #include "speaker.h"
 // #include "../configuration.h"
 
+#ifndef SPEAKER_USE
+#define SPEAKER_USE
+#endif
+
 using namespace std;
 
 typedef void (*use_func_type)(string);
