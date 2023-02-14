@@ -2,3 +2,4 @@ out/*
 vscode
 
 *.dia~
+__pycache__/*
