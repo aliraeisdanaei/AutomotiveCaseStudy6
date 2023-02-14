@@ -7,7 +7,6 @@ import numpy as np
 client = carla.Client('localhost', 2000)
 world = client.get_world()
 
-
 # client.set_timeout(5.0) # seconds
 # client.load_world('Town02')
 
