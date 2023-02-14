@@ -4,7 +4,8 @@ import socket
 tcp_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
  
 # Bind the socket to server address and port 81
-server_address = ('localhost', 81)
+# server_address = ('localhost', 81)
+server_address = ('0.0.0.0', 81)
 tcp_socket.bind(server_address)
  
 # Listen on port 81
