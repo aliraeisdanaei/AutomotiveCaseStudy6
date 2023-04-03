@@ -10,18 +10,22 @@ import com.android.volley.toolbox.Volley
 
 class AppScreen(carContext: CarContext) : Screen(carContext) {
     companion object {
-        var data = "No Data!";
+        var data: MutableList<String> = mutableListOf();
     }
 
     override fun onGetTemplate(): Template {
-        val row: Row = Row.Builder()
-            .setTitle(data)
-            .build()
+
+        val paneBuilder = Pane.Builder()
+        for (line in data) {
+            val row: Row = Row.Builder()
+                .setTitle(line)
+                .build()
+            paneBuilder.addRow(row)
+        }
+
 
         return PaneTemplate.Builder(
-            Pane.Builder()
-                .addRow(row)
-                .build()
+            paneBuilder.build()
         ).setHeaderAction(Action.APP_ICON).build()
     }
 }
