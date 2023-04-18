@@ -13,5 +13,9 @@ drive:
 	${python} run_drive.py
 
 sensor:
-	export FLASK_APP = run_sensor.py
+	set -gx FLASK_APP = run_sensor.py
+	${python} -m flask run
+
+collision:
+	set -gx FLASK_APP = run_collisiondetection.py
 	${python} -m flask run
