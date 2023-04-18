@@ -10,7 +10,7 @@ import com.android.volley.toolbox.Volley
 
 class AppScreen(carContext: CarContext) : Screen(carContext) {
     companion object {
-        var data = "No Data!";
+        var data = "No obstacles ahead.";
     }
 
     override fun onGetTemplate(): Template {

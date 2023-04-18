@@ -11,7 +11,7 @@ import kotlinx.coroutines.*
 import org.json.JSONObject
 
 class AppSession : Session() {
-    val url = "http://10.0.2.2:5000/sensor"
+    val url = "http://10.0.2.2:5000/collision"
     val queue = NetworkQueue.getInstance(carContext)
 
     override fun onCreateScreen(intent: Intent): Screen {

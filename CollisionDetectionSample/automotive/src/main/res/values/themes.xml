@@ -1,4 +1,4 @@
 <resources>
 
-    <style name="Theme.SensorSample" parent="android:Theme.Material.Light.DarkActionBar" />
+    <style name="Theme.CollisionDetectionSample" parent="android:Theme.Material.Light.DarkActionBar" />
 </resources>
