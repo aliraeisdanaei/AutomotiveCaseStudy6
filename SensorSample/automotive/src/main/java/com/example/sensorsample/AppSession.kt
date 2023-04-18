@@ -26,10 +26,10 @@ class AppSession : Session() {
 
     fun requestLoop(screen: AppScreen) {
         val respListener = {response: JSONObject ->
-            AppScreen.data = formatData(response)
+            setData(response)
             screen.invalidate()
             }
-        val errorListener = {error: VolleyError -> AppScreen.data = error.toString() }
+        val errorListener = {error: VolleyError -> AppScreen.data = mutableListOf(error.toString()) }
         while (true) {
             val request = JsonObjectRequest(Request.Method.GET, url, null,
                 respListener,
@@ -40,11 +40,12 @@ class AppSession : Session() {
         }
     }
 
-    fun formatData(data: JSONObject): String {
+    private fun setData(data: JSONObject): String {
+        AppScreen.data.clear();
         var s = ""
         for (key in data.keys()) {
             val entry = data.getString(key)
-            s += "$key: $entry\n"
+            AppScreen.data.add("$key: $entry")
         }
         return s
     }

@@ -3,3 +3,8 @@ vscode
 
 *.dia~
 __pycache__/*
+SensorSample/.idea/codeStyles/Project.xml
+SampleSensorServer/__pycache__/app.cpython-310.pyc
+SensorSample/.idea/codeStyles/codeStyleConfig.xml
+
+*.pyc
